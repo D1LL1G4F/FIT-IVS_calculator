@@ -1,4 +1,4 @@
-# FIT-IVS_calculator
+# Next-Gen Calculator
 
 ## **Team name:** 
 *What You See Is What You Might Get If You're Really Really Lucky And All Goes Well* 
