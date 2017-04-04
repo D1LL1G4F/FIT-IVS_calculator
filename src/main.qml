@@ -49,7 +49,7 @@ ApplicationWindow {
         height: parent.height/6
         text: qsTr("0")
         horizontalAlignment: Text.AlignRight
-        font.pointSize: 30
+        font.pointSize: 40
     }
 
     Button {
@@ -607,11 +607,12 @@ ApplicationWindow {
         y: scrn.height
         width: parent.width/4
         height: parent.height/12
-        text: qsTr("x^y")
+        text: qsTr("x<sup>y</sup>")
 
         contentItem: Text {
             width: parent.width
             height: parent.height
+            textFormat: Text.RichText
             text: parent.text
             font.pointSize: 20
             verticalAlignment: Text.AlignVCenter
@@ -637,11 +638,12 @@ ApplicationWindow {
         y: scrn.height + (parent.height/12)
         width: parent.width/4
         height: parent.height/12
-        text: qsTr("x^2")
+        text: qsTr("x<sup>2</sup>")
 
         contentItem: Text {
             width: parent.width
             height: parent.height
+            textFormat: Text.RichText
             text: parent.text
             font.pointSize: 20
             verticalAlignment: Text.AlignVCenter
