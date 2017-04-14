@@ -1,15 +1,24 @@
 #include "calcinterface.h"
 #include <QDebug>
-
+#include <QVariant>
 
 CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
 {
-
+    output = "0"; // set default output
 }
 
 void CalcInterface::number_pressed(int number)
 {
     qDebug() << "Pressed Number: " << number;
+
+    if (output == QVariant("0")) // in case there is only zero replace it
+    {
+        output = QString::number(number);
+    }
+    else { // else append
+        output.append(QString::number(number));
+    }
+
 }
 
 void CalcInterface::equal_pressed()
@@ -45,6 +54,7 @@ void CalcInterface::divide_pressed()
 void CalcInterface::delete_pressed()
 {
     qDebug() << "Pressed delete ";
+    output = "0";
 }
 
 void CalcInterface::sqrt_pressed()
@@ -75,4 +85,9 @@ void CalcInterface::sin_pressed()
 void CalcInterface::cos_pressed()
 {
     qDebug() << "Pressed cos ";
+}
+
+void CalcInterface::display(QObject *scrn)
+{
+    scrn->setProperty("text",QVariant(output)); // sends output to screen of calculator
 }

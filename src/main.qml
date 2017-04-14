@@ -40,6 +40,7 @@ ApplicationWindow {
         text: qsTr("0")
         onClicked: {
             calc.number_pressed(0);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -73,6 +74,7 @@ ApplicationWindow {
         text: "1"
         onClicked: {
             calc.number_pressed(1);
+            calc.display(scrn);
         }
 
 
@@ -108,6 +110,7 @@ ApplicationWindow {
         text: qsTr("2")
         onClicked: {
             calc.number_pressed(2);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -141,6 +144,7 @@ ApplicationWindow {
         text: qsTr("3")
         onClicked: {
             calc.number_pressed(3);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -174,6 +178,7 @@ ApplicationWindow {
         text: qsTr("4")
         onClicked: {
             calc.number_pressed(4);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -207,6 +212,7 @@ ApplicationWindow {
         text: qsTr("5")
         onClicked: {
             calc.number_pressed(5);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -240,6 +246,7 @@ ApplicationWindow {
         text: qsTr("6")
         onClicked: {
             calc.number_pressed(6);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -273,6 +280,7 @@ ApplicationWindow {
         text: qsTr("7")
         onClicked: {
             calc.number_pressed(7);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -306,6 +314,7 @@ ApplicationWindow {
         text: qsTr("8")
         onClicked: {
             calc.number_pressed(8);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -339,6 +348,7 @@ ApplicationWindow {
         text: qsTr("9")
         onClicked: {
             calc.number_pressed(9);
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -376,6 +386,7 @@ ApplicationWindow {
         text: qsTr("=")
         onClicked: {
             calc.equal_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -412,6 +423,7 @@ ApplicationWindow {
         text: qsTr("+")
         onClicked: {
             calc.plus_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -448,6 +460,7 @@ ApplicationWindow {
         text: qsTr("-")
         onClicked: {
             calc.minus_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -484,6 +497,7 @@ ApplicationWindow {
         text: qsTr("x")
         onClicked: {
             calc.multiply_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -520,6 +534,7 @@ ApplicationWindow {
         text: qsTr("÷")
         onClicked: {
             calc.divide_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -556,6 +571,7 @@ ApplicationWindow {
         text: qsTr(".")
         onClicked: {
             calc.point_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -592,6 +608,7 @@ ApplicationWindow {
         text: qsTr("CE")
         onClicked: {
             calc.delete_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -628,6 +645,7 @@ ApplicationWindow {
         text: qsTr("n!")
         onClicked: {
             calc.fact_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -664,6 +682,7 @@ ApplicationWindow {
         text: qsTr("√")
         onClicked: {
             calc.sqrt_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -700,6 +719,7 @@ ApplicationWindow {
         text: qsTr("x<sup>y</sup>")
         onClicked: {
             calc.exp_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -737,6 +757,7 @@ ApplicationWindow {
         text: qsTr("x<sup>2</sup>")
         onClicked: {
             calc.sec_exp_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -774,6 +795,7 @@ ApplicationWindow {
         text: qsTr("sin")
         onClicked: {
             calc.sin_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {
@@ -810,6 +832,7 @@ ApplicationWindow {
         text: qsTr("cos")
         onClicked: {
             calc.cos_pressed();
+            calc.display(scrn);
         }
 
         contentItem: Text {

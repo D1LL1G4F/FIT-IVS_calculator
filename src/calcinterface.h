@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QString>
 
 class CalcInterface : public QObject
 {
@@ -24,10 +25,14 @@ public:
     Q_INVOKABLE void sec_exp_pressed();
     Q_INVOKABLE void sin_pressed();
     Q_INVOKABLE void cos_pressed();
+    Q_INVOKABLE void display(QObject *scrn);
 
 signals:
 
 public slots:
+
+private:
+    QString output; // string sended to screen of calculator
 
 };
 
