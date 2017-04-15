@@ -3,22 +3,22 @@
 
 double sum(double a, double b)
 {
-    //TODO...
+    return a+b;
 }
 
 double sub(double a, double b)
 {
-    //TODO...
+    return a-b;
 }
 
 double mul(double a, double b)
 {
-    //TODO...
+    return a*b;
 }
 
 double div(double divident, double divisor)
 {
-    //TODO...
+    return a/b;
 }
 
 double sqroot(double radicand)
