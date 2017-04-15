@@ -24,12 +24,12 @@ double div(double divident, double divisor)
 double sqroot(double radicand)
 {
   double x=radicand;
-  double y = 1;
-  double e = 0.000001; //e urcuje presnost
-  while(x - y > e)
+  double y=1;
+  double e=0.000001; //e urcuje presnost
+  while(x-y>e)
 	{
-		x = (x + y)/2;
-		y = n/x;
+		x=(x+y)/2;
+		y=n/x;
 	}
   return x;
 }
@@ -37,9 +37,9 @@ double sqroot(double radicand)
 unsigned int fact(unsigned int num)
 {
   unsigned int factorial = 1; //overflow?
-  for ( int i=1; i<=num; i++ )
+  for (int i=1;i<=num;i++)
   {
-	  factorial = factorial*i;
+	  factorial=factorial*i;
   }
   return factorial;
 }
@@ -49,9 +49,11 @@ double pwr(double variable, double constant)
     //TODO...
 }
 
-double cosx(double x)
+double cosx(double x) //x=angle
 {
-    //TODO...
+  double cosin;
+  cosin=cos(x*PI/180.0); //#include <math.h> ???
+  return cosin;
 }
 
 double sinx(double x)
