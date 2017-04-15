@@ -12,6 +12,10 @@ void CalcInterface::number_pressed(int number)
 {
     qDebug() << "Pressed Number: " << number;
 
+    if (output.count() == 13) { // output restricted on 13 characters
+        return;
+    }
+
     if (output == QVariant("0")) // in case there is only zero replace it
     {
         output = QString::number(number);
