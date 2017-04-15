@@ -1,6 +1,7 @@
 #include "calcinterface.h"
 #include <QDebug>
 #include <QVariant>
+#include "mathlib.h"
 
 CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
 {
@@ -87,6 +88,10 @@ void CalcInterface::cos_pressed()
     qDebug() << "Pressed cos ";
 }
 
+/*
+ * Is called whenever some button is clicked and sends Qstring output
+ * to screen of calculator
+ */
 void CalcInterface::display(QObject *scrn)
 {
     scrn->setProperty("text",QVariant(output)); // sends output to screen of calculator
