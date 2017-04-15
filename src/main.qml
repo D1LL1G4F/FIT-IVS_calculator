@@ -18,843 +18,254 @@ ApplicationWindow {
     /*
      * Output screen
      */
-    TextField {
+    Scrn {
         id: scrn
         x: 0
         y: 0
         width: parent.width
         height: parent.height/6
-        text: qsTr("0")
-        horizontalAlignment: Text.AlignRight
-        font.pointSize: 40
     }
-   /*
-    * Buttons 0-9
-    */
-    Button {
+
+    /*
+     * Buttons 0-9
+     */
+    Num0 {
         id: num0
         x: parent.width/4
         y: scrn.height + (4*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("0")
-        onClicked: {
-            calc.number_pressed(0);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num1 {
         id: num1
         x: 0
         y: scrn.height + (3*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
-        text: "1"
-        onClicked: {
-            calc.number_pressed(1);
-            calc.display(scrn);
-        }
-
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
-
+        text: qsTr("1")
     }
-    Button {
+    Num2 {
         id: num2
         x: parent.width/4
         y: scrn.height + (3*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("2")
-        onClicked: {
-            calc.number_pressed(2);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num3 {
         id: num3
         x: parent.width/2
         y: scrn.height + (3*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("3")
-        onClicked: {
-            calc.number_pressed(3);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num4 {
         id: num4
         x: 0
         y: scrn.height + (2*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("4")
-        onClicked: {
-            calc.number_pressed(4);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num5 {
         id: num5
         x: parent.width/4
         y: scrn.height + (2*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("5")
-        onClicked: {
-            calc.number_pressed(5);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num6 {
         id: num6
         x: parent.width/2
         y: scrn.height + (2*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("6")
-        onClicked: {
-            calc.number_pressed(6);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num7 {
         id: num7
         x: 0
         y: scrn.height + (parent.height/6)
         width: parent.width/4
         height: parent.height/6
         text: qsTr("7")
-        onClicked: {
-            calc.number_pressed(7);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num8 {
         id: num8
         x: parent.width/4
         y: scrn.height + (parent.height/6)
         width: parent.width/4
         height: parent.height/6
         text: qsTr("8")
-        onClicked: {
-            calc.number_pressed(8);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
-    Button {
+    Num9 {
         id: num9
         x: parent.width/2
         y: scrn.height + (parent.height/6)
         width: parent.width/4
         height: parent.height/6
         text: qsTr("9")
-        onClicked: {
-            calc.number_pressed(9);
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "black"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
-   /*
-    * Button: '='
-    */
-    Button {
+
+
+    /*
+     * Button: '='
+     */
+    Result {
         id: result
         x: parent.width/2
         y: scrn.height + (4*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("=")
-        onClicked: {
-            calc.equal_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2956B2"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: '+'
      */
-    Button {
+    Plus {
         id: plus
         x: (parent.width/4)*3
         y: scrn.height + (4*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr("+")
-        onClicked: {
-            calc.plus_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2956B2"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: '-'
      */
-    Button {
+    Minus {
         id: minus
         x: (parent.width/4)*3
         y: scrn.height + (parent.height/6)*3
         width: parent.width/4
         height: parent.height/6
         text: qsTr("-")
-        onClicked: {
-            calc.minus_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2956B2"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: '*'
      */
-    Button {
+    Multiply {
         id: multiply
         x: (parent.width/4)*3
         y: scrn.height + (parent.height/6)*2
         width: parent.width/4
         height: parent.height/6
         text: qsTr("x")
-        onClicked: {
-            calc.multiply_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2956B2"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: '/'
      */
-    Button {
+    Divide {
         id: divide
         x: (parent.width/4)*3
         y: scrn.height + (parent.height/6)
         width: parent.width/4
         height: parent.height/6
         text: qsTr("÷")
-        onClicked: {
-            calc.divide_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2956B2"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: '.'
      */
-    Button {
+    Dec_point {
         id: dec_point
         x: 0
         y: scrn.height + (4*(parent.height/6))
         width: parent.width/4
         height: parent.height/6
         text: qsTr(".")
-        onClicked: {
-            calc.point_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2956B2"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'CE'
      */
-    Button {
+    Del {
         id: del
         x: (parent.width/4)*3
         y: scrn.height
         width: parent.width/4
         height: parent.height/6
         text: qsTr("CE")
-        onClicked: {
-            calc.delete_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 30
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#FF5B00"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'n!'
      */
-    Button {
+    Fact {
         id: fact
         x: 0
         y: scrn.height + (parent.height/12)
         width: parent.width/4
         height: parent.height/12
         text: qsTr("n!")
-        onClicked: {
-            calc.fact_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 20
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2C6700"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'sqrt'
      */
-    Button {
+    Sqroot {
         id: sqroot
         x: 0
         y: scrn.height
         width: parent.width/4
         height: parent.height/12
         text: qsTr("√")
-        onClicked: {
-            calc.sqrt_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 20
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2C6700"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'x^y'
      */
-    Button {
+    Exp {
         id: exp
         x: parent.width/4
         y: scrn.height
         width: parent.width/4
         height: parent.height/12
         text: qsTr("x<sup>y</sup>")
-        onClicked: {
-            calc.exp_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            textFormat: Text.RichText
-            text: parent.text
-            font.pointSize: 20
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2C6700"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'x^2'
      */
-    Button {
+    Sec_exp {
         id: sec_exp
         x: parent.width/4
         y: scrn.height + (parent.height/12)
         width: parent.width/4
         height: parent.height/12
         text: qsTr("x<sup>2</sup>")
-        onClicked: {
-            calc.sec_exp_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            textFormat: Text.RichText
-            text: parent.text
-            font.pointSize: 20
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2C6700"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'sin'
      */
-    Button {
+    Sinx {
         id: sinx
         x: parent.width/2
         y: scrn.height
         width: parent.width/4
         height: parent.height/12
         text: qsTr("sin")
-        onClicked: {
-            calc.sin_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 20
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2C6700"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
     /*
      * Button: 'cos'
      */
-    Button {
+    Cosx {
         id: cosx
         x: parent.width/2
         y: scrn.height + (parent.height/12)
         width: parent.width/4
         height: parent.height/12
         text: qsTr("cos")
-        onClicked: {
-            calc.cos_pressed();
-            calc.display(scrn);
-        }
-
-        contentItem: Text {
-            width: parent.width
-            height: parent.height
-            text: parent.text
-            font.pointSize: 20
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            x: parent.x
-            y: parent.y
-            color: "white"
-
-        }
-
-        background: Rectangle {
-            width: parent.width
-            height: parent.height
-            color: "#2C6700"
-            opacity: parent.down ? 0.6 : 1
-            visible: true
-        }
     }
 
 }

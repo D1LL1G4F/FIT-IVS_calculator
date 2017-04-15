@@ -1,5 +1,29 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>Num0.qml</file>
+        <file>Num1.qml</file>
+        <file>Num2.qml</file>
+        <file>Num3.qml</file>
+        <file>Num4.qml</file>
+        <file>Num5.qml</file>
+        <file>Num6.qml</file>
+        <file>Num7.qml</file>
+        <file>Num8.qml</file>
+        <file>Num9.qml</file>
+        <file>Scrn.qml</file>
+        <file>Result.qml</file>
+        <file>Plus.qml</file>
+        <file>Minus.qml</file>
+        <file>Multiply.qml</file>
+        <file>Divide.qml</file>
+        <file>Dec_point.qml</file>
+        <file>Del.qml</file>
+        <file>Fact.qml</file>
+        <file>Sqroot.qml</file>
+        <file>Exp.qml</file>
+        <file>Sec_exp.qml</file>
+        <file>Sinx.qml</file>
+        <file>Cosx.qml</file>
     </qresource>
 </RCC>
