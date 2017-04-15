@@ -1,5 +1,5 @@
 #include "mathlib.h"
-
+#define PI 3.14159265
 
 double sum(double a, double b)
 {
@@ -18,12 +18,20 @@ double mul(double a, double b)
 
 double div(double divident, double divisor)
 {
-    return a/b;
+    return divident/divisor;
 }
 
 double sqroot(double radicand)
 {
-    //TODO...
+  double x=radicand;
+  double y = 1;
+  double e = 0.000001; //e urcuje presnost
+  while(x - y > e)
+	{
+		x = (x + y)/2;
+		y = n/x;
+	}
+  return x;
 }
 
 double fact(double num)
