@@ -10,7 +10,7 @@ CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
 
 void CalcInterface::number_pressed(int number)
 {
-    qDebug() << "Pressed Number: " << number;
+    qDebug() << "Pressed Number: " << number; // console info
 
     if (output.count() == 13) { // output restricted on 13 characters
         return;
@@ -34,6 +34,17 @@ void CalcInterface::equal_pressed()
 void CalcInterface::point_pressed()
 {
     qDebug() << "Pressed decimal point ";
+
+    if (output.count() == 13) { // output restricted on 13 characters
+        return;
+    }
+
+    if (pointFlag == true) { // prevents more points per number
+        return;
+    }
+
+    output.append(QString("."));
+    pointFlag = true;
 }
 
 void CalcInterface::plus_pressed()
@@ -60,6 +71,7 @@ void CalcInterface::delete_pressed()
 {
     qDebug() << "Pressed delete ";
     output = "0";
+    pointFlag = false;
 }
 
 void CalcInterface::sqrt_pressed()

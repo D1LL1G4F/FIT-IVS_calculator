@@ -33,6 +33,7 @@ public slots:
 
 private:
     QString output; // string sended to screen of calculator
+    bool pointFlag; // indicates presence of decimal point
 
 };
 
