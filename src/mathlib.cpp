@@ -56,7 +56,9 @@ double cosx(double x) //x=angle
   return cosin;
 }
 
-double sinx(double x)
+double sinx(double x) //look for cosx
 {
-    //TODO...
+  double sinus;
+  sinus=sin(x*PI/180.0);
+  return sinus;
 }
