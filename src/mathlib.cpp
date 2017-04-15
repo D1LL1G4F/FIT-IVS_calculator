@@ -34,9 +34,14 @@ double sqroot(double radicand)
   return x;
 }
 
-double fact(double num)
+unsigned int fact(unsigned int num)
 {
-    //TODO...
+  unsigned int factorial = 1; //overflow?
+  for ( int i=1; i<=num; i++ )
+  {
+	  factorial = factorial*i;
+  }
+  return factorial;
 }
 
 double pwr(double variable, double constant)
