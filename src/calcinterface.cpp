@@ -6,6 +6,7 @@
 CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
 {
     output = "0"; // set default output
+    pointFlag = false; // set default pointFlag
 }
 
 void CalcInterface::number_pressed(int number)
