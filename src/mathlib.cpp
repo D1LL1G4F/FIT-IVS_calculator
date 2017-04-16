@@ -29,7 +29,7 @@ double sqroot(double radicand)
   while(x-y>e)
 	{
 		x=(x+y)/2;
-		y=n/x;
+		y=radicand/x;
 	}
   return x;
 }
@@ -37,7 +37,7 @@ double sqroot(double radicand)
 unsigned int fact(unsigned int num)
 {
   unsigned int factorial = 1; //overflow?
-  for (int i=1;i<=num;i++)
+  for (unsigned int i=1;i<=num;i++)
   {
 	  factorial=factorial*i;
   }
