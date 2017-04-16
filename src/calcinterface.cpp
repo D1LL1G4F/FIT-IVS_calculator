@@ -43,9 +43,6 @@ void CalcInterface::equal_pressed()
 
 void CalcInterface::point_pressed()
 {
-    /*
-     * BUG!!! after pressing plus operand point_pressed doesn't work... :(
-     */
     qDebug() << "Pressed decimal point ";
 
     if (output.count() == 13) { // output restricted on 13 characters
@@ -63,10 +60,7 @@ void CalcInterface::point_pressed()
 void CalcInterface::plus_pressed()
 {
     qDebug() << "Pressed plus ";
-    pointFlag = false;
-    if (wfnFlag){ //Waiting for number. Do nothing.
-        return;
-    }
+
     if (divFlag){
         if (plusFlag){
             tempSum += tempFactor / output.toDouble();
@@ -84,12 +78,24 @@ void CalcInterface::plus_pressed()
         wfnFlag = true;
         return;
     }
+  if (mulFlag) {
+        tempFactor = mul(tempFactor,output.toDouble()); // tempFactor *= output
+        tempSum = sum(tempSum,tempFactor); // tempSum+=TempFactor
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        mulFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
         plusFlag = true;
         minusFlag = false;
         wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
         return;
     }
     if (minusFlag) {
@@ -98,6 +104,7 @@ void CalcInterface::plus_pressed()
         plusFlag = true;
         minusFlag = false;
         wfnFlag = true;  // activates waiting for number
+        pointFlag = false; // resets point flag
         return;
     }
 
@@ -105,6 +112,7 @@ void CalcInterface::plus_pressed()
     plusFlag = true;
     minusFlag = false;
     wfnFlag = true; // activates waiting for number
+    pointFlag = false; // resets point flag
 
 }
 
@@ -159,6 +167,34 @@ void CalcInterface::minus_pressed()
 void CalcInterface::multiply_pressed()
 {
     qDebug() << "Pressed multiply ";
+
+
+    if (mulFlag) {
+        tempFactor = mul(tempFactor,output.toDouble());
+        output = QString::number(tempFactor, 'g', 13); // coverts tempFactor to Qtring on 13dec presition
+        mulFlag = true;
+        divFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
+
+    if (divFlag) {
+        tempFactor = div(tempFactor,output.toDouble());
+        output = QString::number(tempFactor, 'g', 13); // coverts tempFactor to Qtring on 13dec presition
+        mulFlag = true;
+        divFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
+
+
+    tempFactor += output.toDouble();
+    mulFlag = true;
+    divFlag = false;
+    wfnFlag = true; // activates waiting for number
+    pointFlag = false; // resets point flag
 }
 
 void CalcInterface::divide_pressed()
