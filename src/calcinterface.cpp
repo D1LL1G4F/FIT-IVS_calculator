@@ -43,9 +43,6 @@ void CalcInterface::equal_pressed()
 
 void CalcInterface::point_pressed()
 {
-    /*
-     * BUG!!! after pressing plus operand point_pressed doesn't work... :(
-     */
     qDebug() << "Pressed decimal point ";
 
     if (output.count() == 13) { // output restricted on 13 characters
@@ -87,7 +84,6 @@ void CalcInterface::plus_pressed()
     tempSum += output.toDouble(); // sums temporary sum (0) with output number
     plusFlag = true;
     minusFlag = false;
-    output = "0";
     wfnFlag = true; // activates waiting for number
     pointFlag = false; // resets point flag
 
