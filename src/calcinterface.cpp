@@ -77,9 +77,17 @@ void CalcInterface::divide_pressed()
 
 void CalcInterface::delete_pressed()
 {
-    qDebug() << "Pressed delete ";
-    output = "0";
-    pointFlag = false;
+    qDebug() << "Pressed delete "; // console info
+
+    output = "0"; // set default output
+    tempSum = 0.0; // set default sum so far
+    tempFactor = 0.0; // set default factor so far
+    pointFlag = false; // set default pointFlag
+    plusFlag = false; // set default plus operator
+    minusFlag = false; // set default minus operator
+    divFlag = false; // set default division operator
+    mulFlag = false; // set default multiply operator
+    powFLag = false; // set default power operator
 }
 
 void CalcInterface::sqrt_pressed()
