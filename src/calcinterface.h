@@ -34,6 +34,11 @@ public slots:
 private:
     QString output; // string sended to screen of calculator
     bool pointFlag; // indicates presence of decimal point
+    bool plusFlag; // indicates presence of plus operator
+    bool minusFlag; // indicates presence of minus operator
+    bool divFlag; // indicates presence of divide operator
+    bool mulFlag; // indicates presence of multilply operator
+    bool powFLag; // indicates presence of power operator
 
 };
 
