@@ -63,7 +63,27 @@ void CalcInterface::point_pressed()
 void CalcInterface::plus_pressed()
 {
     qDebug() << "Pressed plus ";
+    pointFlag = false;
+    if (wfnFlag){ //Waiting for number. Do nothing.
+        return;
+    }
+    if (divFlag){
+        if (plusFlag){
+            tempSum += tempFactor / output.toDouble();
+        }else
+        if (minusFlag){
+            tempSum -= tempFactor / output.toDouble();
+        }else
+            tempSum += tempFactor / output.toDouble();
 
+        output = QString::number(tempSum, 'g', 13);
+        divFlag = false;
+        tempFactor = 0;
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true;
+        return;
+    }
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
@@ -72,7 +92,6 @@ void CalcInterface::plus_pressed()
         wfnFlag = true; // activates waiting for number
         return;
     }
-
     if (minusFlag) {
         tempSum -= output.toDouble(); // subs temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
@@ -85,7 +104,6 @@ void CalcInterface::plus_pressed()
     tempSum += output.toDouble(); // sums temporary sum (0) with output number
     plusFlag = true;
     minusFlag = false;
-    output = "0";
     wfnFlag = true; // activates waiting for number
 
 }
@@ -93,6 +111,49 @@ void CalcInterface::plus_pressed()
 void CalcInterface::minus_pressed()
 {
     qDebug() << "Pressed minus ";
+    pointFlag = false;
+    if (wfnFlag){ //Waiting for number. Do nothing.
+        return;
+    }
+    if (divFlag){
+        if (plusFlag){
+            tempSum += tempFactor / output.toDouble();
+        }else
+        if (minusFlag){
+            tempSum -= tempFactor / output.toDouble();
+        }else
+            tempSum += tempFactor / output.toDouble();
+
+        output = QString::number(tempSum, 'g', 13);
+        divFlag = false;
+        tempFactor = 0;
+        plusFlag = false;
+        minusFlag = true;
+        wfnFlag = true;
+        return;
+    }
+    if (plusFlag) {
+        tempSum += output.toDouble(); // sums temporary sum with output number
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = false;
+        minusFlag = true;
+        wfnFlag = true; // activates waiting for number
+        return;
+    }
+
+    if (minusFlag) {
+        tempSum -= output.toDouble(); // subs temporary sum with output number
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = false;
+        minusFlag = true;
+        wfnFlag = true;  // activates waiting for number
+        return;
+    }
+
+    tempSum -= output.toDouble(); // sums temporary sum (0) with output number
+    plusFlag = false;
+    minusFlag = true;
+    wfnFlag = true; // activates waiting for number
 }
 
 void CalcInterface::multiply_pressed()
@@ -103,6 +164,28 @@ void CalcInterface::multiply_pressed()
 void CalcInterface::divide_pressed()
 {
     qDebug() << "Pressed divide ";
+    if (wfnFlag){ // Waiting for number, do nothing.
+        return;
+    }
+    if (divFlag){
+        tempFactor = tempFactor / output.toDouble();
+        divFlag = true;
+        wfnFlag = true;
+        if (plusFlag){
+            output = QString::number(tempSum + tempFactor, 'g', 13);
+            return;
+        }
+        if (minusFlag){
+            output = QString::number(tempSum - tempFactor, 'g', 13);
+            return;
+        }
+        output = QString::number(tempFactor, 'g', 13);
+        return;
+    }
+
+    tempFactor = output.toDouble();
+    divFlag = true;
+    wfnFlag = true;
 }
 
 void CalcInterface::delete_pressed()
