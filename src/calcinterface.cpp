@@ -70,6 +70,7 @@ void CalcInterface::plus_pressed()
         plusFlag = true;
         minusFlag = false;
         wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
         return;
     }
 
@@ -79,6 +80,7 @@ void CalcInterface::plus_pressed()
         plusFlag = true;
         minusFlag = false;
         wfnFlag = true;  // activates waiting for number
+        pointFlag = false; // resets point flag
         return;
     }
 
@@ -87,6 +89,7 @@ void CalcInterface::plus_pressed()
     minusFlag = false;
     output = "0";
     wfnFlag = true; // activates waiting for number
+    pointFlag = false; // resets point flag
 
 }
 
