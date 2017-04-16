@@ -41,6 +41,7 @@ private:
     bool divFlag; // indicates presence of divide operator
     bool mulFlag; // indicates presence of multilply operator
     bool powFLag; // indicates presence of power operator
+    bool wfnFlag; // indicates if there is waiting for number
 
 };
 

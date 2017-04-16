@@ -14,6 +14,7 @@ CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
     divFlag = false; // set default division operator
     mulFlag = false; // set default multiply operator
     powFLag = false; // set default power operator
+    wfnFlag = false; // set defualt waiting for number indicator
 }
 
 void CalcInterface::number_pressed(int number)
@@ -24,8 +25,9 @@ void CalcInterface::number_pressed(int number)
         return;
     }
 
-    if (output == QVariant("0")) // in case there is only zero replace it
+    if (output == QVariant("0") || wfnFlag == true) // in case there is only zero or smthng waits for number replace it
     {
+        wfnFlag = false;
         output = QString::number(number);
     }
     else { // else append
@@ -41,6 +43,9 @@ void CalcInterface::equal_pressed()
 
 void CalcInterface::point_pressed()
 {
+    /*
+     * BUG!!! after pressing plus operand point_pressed doesn't work... :(
+     */
     qDebug() << "Pressed decimal point ";
 
     if (output.count() == 13) { // output restricted on 13 characters
@@ -58,6 +63,31 @@ void CalcInterface::point_pressed()
 void CalcInterface::plus_pressed()
 {
     qDebug() << "Pressed plus ";
+
+    if (plusFlag) {
+        tempSum += output.toDouble(); // sums temporary sum with output number
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true; // activates waiting for number
+        return;
+    }
+
+    if (minusFlag) {
+        tempSum -= output.toDouble(); // subs temporary sum with output number
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true;  // activates waiting for number
+        return;
+    }
+
+    tempSum += output.toDouble(); // sums temporary sum (0) with output number
+    plusFlag = true;
+    minusFlag = false;
+    output = "0";
+    wfnFlag = true; // activates waiting for number
+
 }
 
 void CalcInterface::minus_pressed()
