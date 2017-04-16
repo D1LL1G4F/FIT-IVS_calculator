@@ -60,6 +60,30 @@ void CalcInterface::point_pressed()
 void CalcInterface::plus_pressed()
 {
     qDebug() << "Pressed plus ";
+    if (mulFlag) {
+        tempFactor = mul(tempFactor,output.toDouble()); // tempFactor *= output
+        tempSum = sum(tempSum,tempFactor); // tempSum+=TempFactor
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        mulFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
+
+    if (divFlag) {
+        tempFactor = div(tempFactor,output.toDouble()); // tempFactor /= output
+        tempSum = sum(tempSum,tempFactor); // tempSum+=TempFactor
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        divFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
+
 
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
@@ -97,6 +121,34 @@ void CalcInterface::minus_pressed()
 void CalcInterface::multiply_pressed()
 {
     qDebug() << "Pressed multiply ";
+
+
+    if (mulFlag) {
+        tempFactor = mul(tempFactor,output.toDouble());
+        output = QString::number(tempFactor, 'g', 13); // coverts tempFactor to Qtring on 13dec presition
+        mulFlag = true;
+        divFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
+
+    if (divFlag) {
+        tempFactor = div(tempFactor,output.toDouble());
+        output = QString::number(tempFactor, 'g', 13); // coverts tempFactor to Qtring on 13dec presition
+        mulFlag = true;
+        divFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        return;
+    }
+
+
+    tempFactor += output.toDouble();
+    mulFlag = true;
+    divFlag = false;
+    wfnFlag = true; // activates waiting for number
+    pointFlag = false; // resets point flag
 }
 
 void CalcInterface::divide_pressed()
