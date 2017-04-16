@@ -1,4 +1,5 @@
 #include "mathlib.h"
+#include <math.h>
 #define PI 3.14159265
 
 double sum(double a, double b)
@@ -46,17 +47,17 @@ unsigned int fact(unsigned int num)
 
 double pwr(double variable, double constant)
 {
-    //TODO...
+    return pow(variable,constant);
 }
 
 double cosx(double x) //x=angle
 {
   double cosin;
-  cosin=cos(x*PI/180.0); //#include <math.h> ???
+  cosin=cos(x*PI/180.0);
   return cosin;
 }
 
-double sinx(double x) //look for cosx
+double sinx(double x) //x=angle
 {
   double sinus;
   sinus=sin(x*PI/180.0);
