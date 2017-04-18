@@ -35,7 +35,7 @@ double sqroot(double radicand)
   return x;
 }
 
-unsigned int fact(unsigned int num)
+double fact(double num)
 {
   unsigned int factorial = 1; //overflow?
   for (unsigned int i=1;i<=num;i++)
