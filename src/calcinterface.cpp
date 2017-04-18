@@ -8,12 +8,13 @@ CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
     output = "0"; // set default output
     tempSum = 0.0; // set default sum so far
     tempFactor = 0.0; // set default factor so far
+    tempBase = 0.0; // set default base
     pointFlag = false; // set default pointFlag
     plusFlag = false; // set default plus operator
     minusFlag = false; // set default minus operator
     divFlag = false; // set default division operator
     mulFlag = false; // set default multiply operator
-    powFLag = false; // set default power operator
+    powFlag = false; // set default power operator
     wfnFlag = false; // set defualt waiting for number indicator
 }
 
@@ -39,6 +40,55 @@ void CalcInterface::number_pressed(int number)
 void CalcInterface::equal_pressed()
 {
     qDebug() << "Pressed equal ";
+    if (powFlag){
+        output = QString::number( pwr(tempBase, output.toDouble()) );
+        powFlag = false;
+    }
+    if (divFlag || mulFlag){
+        if (divFlag){
+            if (minusFlag){
+                tempSum -= div(tempFactor, output.toDouble());
+            }else
+                tempSum += div(tempFactor, output.toDouble());
+        }else
+        if (mulFlag){
+            if (minusFlag){
+                tempSum -= mul(tempFactor, output.toDouble());
+            }else
+                tempSum += mul(tempFactor, output.toDouble());
+        }
+        output = QString::number(tempSum, 'g', 13);
+        divFlag = false;
+        tempFactor = 0;
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true;
+    }else
+    if (plusFlag) {
+        tempSum += output.toDouble(); // sums temporary sum with output number
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+    }else
+    if (minusFlag) {
+        tempSum -= output.toDouble(); // subs temporary sum with output number
+        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true;  // activates waiting for number
+        pointFlag = false; // resets point flag
+    }
+    tempSum = 0.0; // set default sum so far
+    tempFactor = 0.0; // set default factor so far
+    tempBase = 0.0; // set default base
+    pointFlag = false; // set default pointFlag
+    plusFlag = false; // set default plus operator
+    minusFlag = false; // set default minus operator
+    divFlag = false; // set default division operator
+    mulFlag = false; // set default multiply operator
+    powFlag = false; // set default power operator
 }
 
 void CalcInterface::point_pressed()
@@ -60,16 +110,26 @@ void CalcInterface::point_pressed()
 void CalcInterface::plus_pressed()
 {
     qDebug() << "Pressed plus ";
-
-    if (divFlag){
-        if (plusFlag){
-            tempSum += tempFactor / output.toDouble();
+    if (wfnFlag){
+        return;
+    }
+    if (powFlag){
+        output = QString::number( pwr(tempBase, output.toDouble()) );
+        powFlag = false;
+    }
+    if (divFlag || mulFlag){
+        if (divFlag){
+            if (minusFlag){
+                tempSum -= div(tempFactor, output.toDouble());
+            }else
+                tempSum += div(tempFactor, output.toDouble());
         }else
-        if (minusFlag){
-            tempSum -= tempFactor / output.toDouble();
-        }else
-            tempSum += tempFactor / output.toDouble();
-
+        if (mulFlag){
+            if (minusFlag){
+                tempSum -= mul(tempFactor, output.toDouble());
+            }else
+                tempSum += mul(tempFactor, output.toDouble());
+        }
         output = QString::number(tempSum, 'g', 13);
         divFlag = false;
         tempFactor = 0;
@@ -77,18 +137,7 @@ void CalcInterface::plus_pressed()
         minusFlag = false;
         wfnFlag = true;
         return;
-    }
-  if (mulFlag) {
-        tempFactor = mul(tempFactor,output.toDouble()); // tempFactor *= output
-        tempSum = sum(tempSum,tempFactor); // tempSum+=TempFactor
-        output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
-        plusFlag = true;
-        minusFlag = false;
-        mulFlag = false;
-        wfnFlag = true; // activates waiting for number
-        pointFlag = false; // resets point flag
-        return;
-    }
+    }else
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
@@ -97,7 +146,7 @@ void CalcInterface::plus_pressed()
         wfnFlag = true; // activates waiting for number
         pointFlag = false; // resets point flag
         return;
-    }
+    }else
     if (minusFlag) {
         tempSum -= output.toDouble(); // subs temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
@@ -123,15 +172,23 @@ void CalcInterface::minus_pressed()
     if (wfnFlag){ //Waiting for number. Do nothing.
         return;
     }
-    if (divFlag){
-        if (plusFlag){
-            tempSum += tempFactor / output.toDouble();
+    if (powFlag){
+        output = QString::number( pwr(tempBase, output.toDouble()) );
+        powFlag = false;
+    }
+    if (divFlag || mulFlag){
+        if (divFlag){
+            if (minusFlag){
+                tempSum -= div(tempFactor, output.toDouble());
+            }else
+                tempSum += div(tempFactor, output.toDouble());
         }else
-        if (minusFlag){
-            tempSum -= tempFactor / output.toDouble();
-        }else
-            tempSum += tempFactor / output.toDouble();
-
+        if (mulFlag){
+            if (minusFlag){
+                tempSum -= mul(tempFactor, output.toDouble());
+            }else
+                tempSum += mul(tempFactor, output.toDouble());
+        }
         output = QString::number(tempSum, 'g', 13);
         divFlag = false;
         tempFactor = 0;
@@ -139,7 +196,7 @@ void CalcInterface::minus_pressed()
         minusFlag = true;
         wfnFlag = true;
         return;
-    }
+    }else
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
@@ -147,8 +204,7 @@ void CalcInterface::minus_pressed()
         minusFlag = true;
         wfnFlag = true; // activates waiting for number
         return;
-    }
-
+    }else
     if (minusFlag) {
         tempSum -= output.toDouble(); // subs temporary sum with output number
         output = QString::number(tempSum, 'g', 13); // coverts tempSum to Qtring on 13dec presition
@@ -157,8 +213,8 @@ void CalcInterface::minus_pressed()
         wfnFlag = true;  // activates waiting for number
         return;
     }
-
-    tempSum -= output.toDouble(); // sums temporary sum (0) with output number
+    qDebug() << "Debug";
+    tempSum += output.toDouble(); // sums temporary sum (0) with output number
     plusFlag = false;
     minusFlag = true;
     wfnFlag = true; // activates waiting for number
@@ -167,20 +223,24 @@ void CalcInterface::minus_pressed()
 void CalcInterface::multiply_pressed()
 {
     qDebug() << "Pressed multiply ";
-
-
+    if(wfnFlag){
+        return;
+    }
+    if (powFlag){
+        output = QString::number( pwr(tempBase, output.toDouble()) );
+        powFlag = false;
+    }
     if (mulFlag) {
-        tempFactor = mul(tempFactor,output.toDouble());
+        tempFactor = mul(tempFactor, output.toDouble());
         output = QString::number(tempFactor, 'g', 13); // coverts tempFactor to Qtring on 13dec presition
         mulFlag = true;
         divFlag = false;
         wfnFlag = true; // activates waiting for number
         pointFlag = false; // resets point flag
         return;
-    }
-
+    }else
     if (divFlag) {
-        tempFactor = div(tempFactor,output.toDouble());
+        tempFactor = div(tempFactor, output.toDouble());
         output = QString::number(tempFactor, 'g', 13); // coverts tempFactor to Qtring on 13dec presition
         mulFlag = true;
         divFlag = false;
@@ -188,7 +248,6 @@ void CalcInterface::multiply_pressed()
         pointFlag = false; // resets point flag
         return;
     }
-
 
     tempFactor += output.toDouble();
     mulFlag = true;
@@ -203,25 +262,34 @@ void CalcInterface::divide_pressed()
     if (wfnFlag){ // Waiting for number, do nothing.
         return;
     }
+    if (powFlag){
+        output = QString::number( pwr(tempBase, output.toDouble()) );
+        powFlag = false;
+    }
     if (divFlag){
-        tempFactor = tempFactor / output.toDouble();
+        tempFactor = div(tempFactor, output.toDouble());
         divFlag = true;
+        mulFlag = false;
         wfnFlag = true;
-        if (plusFlag){
-            output = QString::number(tempSum + tempFactor, 'g', 13);
-            return;
-        }
-        if (minusFlag){
-            output = QString::number(tempSum - tempFactor, 'g', 13);
-            return;
-        }
+        pointFlag = false;
+        output = QString::number(tempFactor, 'g', 13);
+        return;
+    }else
+    if (mulFlag){
+        tempFactor = mul(tempFactor, output.toDouble());
+        divFlag = true;
+        mulFlag = false;
+        wfnFlag = true;
+        pointFlag = false;
         output = QString::number(tempFactor, 'g', 13);
         return;
     }
 
     tempFactor = output.toDouble();
     divFlag = true;
+    mulFlag = false;
     wfnFlag = true;
+    pointFlag = false;
 }
 
 void CalcInterface::delete_pressed()
@@ -231,42 +299,69 @@ void CalcInterface::delete_pressed()
     output = "0"; // set default output
     tempSum = 0.0; // set default sum so far
     tempFactor = 0.0; // set default factor so far
+    tempBase = 0.0; // set default base
     pointFlag = false; // set default pointFlag
     plusFlag = false; // set default plus operator
     minusFlag = false; // set default minus operator
     divFlag = false; // set default division operator
     mulFlag = false; // set default multiply operator
-    powFLag = false; // set default power operator
+    powFlag = false; // set default power operator
 }
 
 void CalcInterface::sqrt_pressed()
 {
     qDebug() << "Pressed sqrt ";
+    if(wfnFlag){
+        return;
+    }
+    output = QString::number( sqroot(output.toDouble()), 'g', 13 );
 }
 
 void CalcInterface::fact_pressed()
 {
     qDebug() << "Pressed fact ";
+    if (wfnFlag){
+        return;
+    }
+    output = QString::number( fact(output.toDouble()), 'g', 13 );
 }
 
 void CalcInterface::exp_pressed()
 {
     qDebug() << "Pressed exp ";
+    if (wfnFlag){
+        return;
+    }
+    tempBase = output.toDouble();
+    powFlag = true;
+    wfnFlag = true;
 }
 
 void CalcInterface::sec_exp_pressed()
 {
     qDebug() << "Pressed second exp ";
+        if (wfnFlag){
+        return;
+    }
+    output = QString::number( pwr(output.toDouble(), 2), 'g', 13 );
 }
 
 void CalcInterface::sin_pressed()
 {
     qDebug() << "Pressed sin ";
+    if (wfnFlag){
+        return;
+    }
+    output = QString::number(sinx(output.toDouble()), 'g', 13);
 }
 
 void CalcInterface::cos_pressed()
 {
     qDebug() << "Pressed cos ";
+    if (wfnFlag){
+        return;
+    }
+    output = QString::number(cosx(output.toDouble()), 'g', 13);
 }
 
 /*
