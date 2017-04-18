@@ -57,38 +57,26 @@ void CalcInterface::equal_pressed()
             }else
                 tempSum += mul(tempFactor, output.toDouble());
         }
-        output = QString::number(tempSum, 'g', 9);
-        divFlag = false;
-        tempFactor = 0;
-        plusFlag = true;
-        minusFlag = false;
-        wfnFlag = true;
+        output = QString::number(tempSum, 'g', 11);
     }else
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
-        output = QString::number(tempSum, 'g', 9); // coverts tempSum to Qtring on 13dec presition
-        plusFlag = true;
-        minusFlag = false;
-        wfnFlag = true; // activates waiting for number
-        pointFlag = false; // resets point flag
+        output = QString::number(tempSum, 'g', 11); // coverts tempSum to Qtring on 13dec presition
     }else
     if (minusFlag) {
         tempSum -= output.toDouble(); // subs temporary sum with output number
-        output = QString::number(tempSum, 'g', 9); // coverts tempSum to Qtring on 13dec presition
-        plusFlag = true;
-        minusFlag = false;
-        wfnFlag = true;  // activates waiting for number
-        pointFlag = false; // resets point flag
+        output = QString::number(tempSum, 'g', 11); // coverts tempSum to Qtring on 13dec presition
     }
-    tempSum = 0.0; // set default sum so far
+    tempSum = 0.0;
     tempFactor = 0.0; // set default factor so far
     tempBase = 0.0; // set default base
     pointFlag = false; // set default pointFlag
-    plusFlag = false; // set default plus operator
+    plusFlag = true; // set default plus operator
     minusFlag = false; // set default minus operator
     divFlag = false; // set default division operator
     mulFlag = false; // set default multiply operator
     powFlag = false; // set default power operator
+    wfnFlag = false;
 }
 
 void CalcInterface::point_pressed()
