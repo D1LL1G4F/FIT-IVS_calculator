@@ -11,7 +11,7 @@ double div(double divident, double divisor);
 
 double sqroot(double radicand);
 
-double fact(double num);
+unsigned int fact(unsigned int num);
 
 double pwr(double variable, double constant);
 
