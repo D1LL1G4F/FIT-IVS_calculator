@@ -26,7 +26,7 @@ double sqroot(double radicand)
 {
   double x=radicand;
   double y=1;
-  double e=0.000001; //e urcuje presnost
+  double e=0.000000000001; //e urcuje presnost
   while(x-y>e)
 	{
 		x=(x+y)/2;
