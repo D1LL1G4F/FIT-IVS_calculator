@@ -97,7 +97,7 @@ integer and floating-point numbers.
 
 - exponentiation "x^y" - multiplies x with itself y times
 
-- square root "x^(1/y)" - computes basic square root of number
+- square root "x^(1/2)" - computes basic square root of number
 
 - sinus "sin" - finds the sinus of entered angle
 
