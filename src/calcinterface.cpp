@@ -18,6 +18,7 @@ CalcInterface::CalcInterface(QObject *parent) : QObject(parent)
     wfnFlag = false; // set defualt waiting for number indicator
 }
 
+
 void CalcInterface::number_pressed(int number)
 {
     qDebug() << "Pressed Number: " << number; // console info
@@ -76,7 +77,7 @@ void CalcInterface::equal_pressed()
     divFlag = false; // set default division operator
     mulFlag = false; // set default multiply operator
     powFlag = false; // set default power operator
-    wfnFlag = false;
+    wfnFlag = false; // set negative waiting for number
 }
 
 void CalcInterface::point_pressed()
@@ -87,7 +88,7 @@ void CalcInterface::point_pressed()
         return;
     }
 
-    if (pointFlag == true) { // prevents more points per number
+    if (pointFlag) { // prevents more points per number
         return;
     }
 
@@ -121,35 +122,24 @@ void CalcInterface::plus_pressed()
         output = QString::number(tempSum, 'g', 9);
         divFlag = false;
         tempFactor = 0;
-        plusFlag = true;
-        minusFlag = false;
-        wfnFlag = true;
+        set_flags(1);
         return;
     }else
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
         output = QString::number(tempSum, 'g', 9); // coverts tempSum to Qtring on 9dec presition
-        plusFlag = true;
-        minusFlag = false;
-        wfnFlag = true; // activates waiting for number
-        pointFlag = false; // resets point flag
+        set_flags(1);
         return;
     }else
     if (minusFlag) {
         tempSum -= output.toDouble(); // subs temporary sum with output number
         output = QString::number(tempSum, 'g', 9); // coverts tempSum to Qtring on 9dec presition
-        plusFlag = true;
-        minusFlag = false;
-        wfnFlag = true;  // activates waiting for number
-        pointFlag = false; // resets point flag
+        set_flags(1);
         return;
     }
 
     tempSum += output.toDouble(); // sums temporary sum (0) with output number
-    plusFlag = true;
-    minusFlag = false;
-    wfnFlag = true; // activates waiting for number
-    pointFlag = false; // resets point flag
+    set_flags(1);
 
 }
 
@@ -180,32 +170,24 @@ void CalcInterface::minus_pressed()
         output = QString::number(tempSum, 'g', 9);
         divFlag = false;
         tempFactor = 0;
-        plusFlag = false;
-        minusFlag = true;
-        wfnFlag = true;
+        set_flags(2);
         return;
     }else
     if (plusFlag) {
         tempSum += output.toDouble(); // sums temporary sum with output number
         output = QString::number(tempSum, 'g', 9); // coverts tempSum to Qtring on 9dec presition
-        plusFlag = false;
-        minusFlag = true;
-        wfnFlag = true; // activates waiting for number
+        set_flags(2);
         return;
     }else
     if (minusFlag) {
         tempSum -= output.toDouble(); // subs temporary sum with output number
         output = QString::number(tempSum, 'g', 9); // coverts tempSum to Qtring on 9dec presition
-        plusFlag = false;
-        minusFlag = true;
-        wfnFlag = true;  // activates waiting for number
+        set_flags(2);
         return;
     }
     qDebug() << "Debug";
     tempSum += output.toDouble(); // sums temporary sum (0) with output number
-    plusFlag = false;
-    minusFlag = true;
-    wfnFlag = true; // activates waiting for number
+    set_flags(2);
 }
 
 void CalcInterface::multiply_pressed()
@@ -221,27 +203,18 @@ void CalcInterface::multiply_pressed()
     if (mulFlag) {
         tempFactor = mul(tempFactor, output.toDouble());
         output = QString::number(tempFactor, 'g', 9); // coverts tempFactor to Qtring on 9dec presition
-        mulFlag = true;
-        divFlag = false;
-        wfnFlag = true; // activates waiting for number
-        pointFlag = false; // resets point flag
+        set_flags(3);
         return;
     }else
     if (divFlag) {
         tempFactor = div(tempFactor, output.toDouble());
         output = QString::number(tempFactor, 'g', 9); // coverts tempFactor to Qtring on 9dec presition
-        mulFlag = true;
-        divFlag = false;
-        wfnFlag = true; // activates waiting for number
-        pointFlag = false; // resets point flag
+        set_flags(3);
         return;
     }
 
-    tempFactor += output.toDouble();
-    mulFlag = true;
-    divFlag = false;
-    wfnFlag = true; // activates waiting for number
-    pointFlag = false; // resets point flag
+    tempFactor = output.toDouble();
+    set_flags(3);
 }
 
 void CalcInterface::divide_pressed()
@@ -256,28 +229,19 @@ void CalcInterface::divide_pressed()
     }
     if (divFlag){
         tempFactor = div(tempFactor, output.toDouble());
-        divFlag = true;
-        mulFlag = false;
-        wfnFlag = true;
-        pointFlag = false;
+        set_flags(4);
         output = QString::number(tempFactor, 'g', 9);
         return;
     }else
     if (mulFlag){
         tempFactor = mul(tempFactor, output.toDouble());
-        divFlag = true;
-        mulFlag = false;
-        wfnFlag = true;
-        pointFlag = false;
+        set_flags(4);
         output = QString::number(tempFactor, 'g', 9);
         return;
     }
 
     tempFactor = output.toDouble();
-    divFlag = true;
-    mulFlag = false;
-    wfnFlag = true;
-    pointFlag = false;
+    set_flags(4);
 }
 
 void CalcInterface::delete_pressed()
@@ -359,4 +323,43 @@ void CalcInterface::cos_pressed()
 void CalcInterface::display(QObject *scrn)
 {
     scrn->setProperty("text",QVariant(output)); // sends output to screen of calculator
+}
+
+/*
+ *  Sets flags for plus, minus, mul, div based on option
+ */
+void CalcInterface::set_flags(int option)
+{
+    switch (option) {
+    case 1: { // plus
+        plusFlag = true;
+        minusFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        break;
+    }
+    case 2: { // minus
+        plusFlag = false;
+        minusFlag = true;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        break;
+    }
+    case 3: { // multiply
+        mulFlag = true;
+        divFlag = false;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        break;
+    }
+    case 4: { // divide
+        mulFlag = false;
+        divFlag = true;
+        wfnFlag = true; // activates waiting for number
+        pointFlag = false; // resets point flag
+        break;
+    }
+    default:
+        break;
+    }
 }
