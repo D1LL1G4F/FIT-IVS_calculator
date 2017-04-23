@@ -1,9 +1,13 @@
 # Next-Gen Calculator
-
-## **Team name:** 
+## **Prostredi**
+*Ubuntu 64bit*
+## **Nazev tymu** 
 *What You See Is What You Might Get If You're Really Really Lucky And All Goes Well* 
-## **Members:**
-  - xknazi00
-  - xlovis03
-  - xjedli24
-  - xbakal01
+## **Autori**
+  - xknazi00 Matej Kňazík
+  - xlovis03 Vladimír Lovíšek
+  - xjedli24 Jedlička Jakub
+  - xbakal01 Bakaľárová Alica
+## **Licence**
+*Tento program je poskytovan pod licenci GNU GPLv3.*
+  
