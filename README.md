@@ -1,4 +1,6 @@
 # Next-Gen Calculator
+
+
 ## **Prostredi**
 *Ubuntu 64bit*
 ## **Nazev tymu** 
@@ -9,5 +11,5 @@
   - xjedli24 Jedlička Jakub
   - xbakal01 Bakaľárová Alica
 ## **Licence**
-*Tento program je poskytovan pod licenci GNU GPLv3.*
+*Tento program je poskytovan pod licenci [GNU GPLv3](LICENSE).*
   
