@@ -1,0 +1,120 @@
+******************************************************************************************************************************
+******************************************                                 ***************************************************
+******************************************     THE NEXT-GEN CALCULATOR     ***************************************************
+******************************************             Manual              ***************************************************
+******************************************************************************************************************************
+
+
+	The Next-Gen Calc is a simple desktop mathematical tool written by a team of students of FIT VUT Brno called 
+Wysiwymgiyrrlaagw. This manual is divided into three parts: Beginning, Tutorial and Reference. The Beginning produces a short 
+overview of what Calc is, how to install it, how to run it and exit it. The Tutorial describes the ways of Calc use. The 
+Reference contains something that is not what it is supposed to be because I don´t know what it is supposed to contain.
+
+This version of calc is compatible with Ubuntu 16.04.
+
+This sheet contains the documentation to the Next-Gen Calculator.
+
+This file is under the GNU Free Documentation License and the Calc itself is under the GNU General Public License.
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+** Contents: **
+
+BEGINNING
+1.What is Calc
+2.How to install Calc
+3.How to run it and exit it
+
+TUTORIAL
+4. General Use
+5. Functions
+
+REFERENCE
+6. Something weird
+
+
+------------------------------------------------------------------------------------------------------------------------------
+--BEGINNING-------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+1. WHAT IS CALC
+
+Calc is a simple calculator that can do basic mathematical functions that include:
+
+-almost arbitrary precision integers and floating-point numbers
+-mathematical operations such as addition, subtraction, multiplication, division, exponentiation, square roots 
+-trigonometric functions
+
+Because of its simplicity is calc a good tool also for first-time users. They are able to intuitively find just what they are 
+looking for. The calc is truly, as you will see soon, user-friendly and has really pleasant design.
+If you are in a hurry or have it installed and know the basics, just skip this part and go to the Tutorial-Functions. 
+
+
+2. HOW TO INSTALL CALC
+
+First, you open the Terminal. Then check the latest version of Calc with command "???". If you dont have it installed yet and
+you want to install it, write sudo apt install and the title of Ubuntu package. After the installion you can put the icon in 
+the side-menu or on the desktop.
+
+
+3. HOW TO RUN IT AND EXIT IT
+
+There are several ways how to run a program in Ubuntu. Either you can double-click on the icon on the desktop or click on it 
+in the side-menu. If it isn´t there you can for example find it by writing down Calc name in the search application whose 
+icon is on the top of the side-menu. When you want to exit the Calc you simply press the cross in the left top corner. This 
+calculator has no memory so quitting the application means the loss of entered datas.  
+
+
+------------------------------------------------------------------------------------------------------------------------------
+--TUTORIAL--------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+4. GENERAL USE
+
+After the opening of application window you can see the display at the top. Thats the place where the numbers and the operators
+you pressed will be visible. Just under it there are the buttons with numbers and the buttons for functions. You can´t combine 
+more operators or functions. Its possible to only make operations on either one or two numbers. 
+
+When you want to make addition, subtraction, multiplication, division, enter the number, press the operator and then enter the 
+second number. Then press "=". If you want to make exponentiation you need to enter the button, then exponent button and finally
+the exponent. If you want to get square root, press the square root button and the number. If you want to get sin or cosin of an
+angle, press sin or cosin and the number. The calculator counts with a good precision.
+
+
+5. FUNCTIONS ???
+
+This is the subchapter that picks out the mathematical functions and operator that is pressed. All the functions work with also
+integer and floating-point numbers.
+
+- addition "+" -sums up two numbers
+
+- subtraction "-" -subtracts two numbers
+
+- multiplication "x" - multiplies two numbers
+
+- division "/" - divides two numbers
+
+- exponentiation "x^y" - multiplies x with itself y times
+
+- square root "x^(1/2)" - computes basic square root of number
+
+- sinus "sin" - finds the sinus of entered angle
+
+- cosinus "cos" - finds the cosinus of entered angle
+
+
+------------------------------------------------------------------------------------------------------------------------------
+--REFERENCE-------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+That feeling when you dont know what you are doing but just keep writing about something and suddenly you get to the chapter 
+with the name you dont know its meaning and decide to write some BS... Don´t look confused and keep playing that this is
+something important.
+
+I would like to thank the school IVS team for this awsome team opportunity to make a whole application with everything what 
+belongs to it and also my team for doing what I didnt know to do. Surely, I know how to do it now. Maybe... And...
+
+There are no future versions expected.
+
+******************************************************************************************************************************
