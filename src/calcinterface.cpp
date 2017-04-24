@@ -267,7 +267,17 @@ void CalcInterface::sqrt_pressed()
     if(wfnFlag){
         return;
     }
+
+    if (output.toDouble() < 0){
+        delete_pressed();
+        output = QString("Math Error");
+        wfnFlag = true;
+        return;
+    }
+
+
     output = QString::number( sqroot(output.toDouble()), 'g', displayWidth );
+
 }
 
 void CalcInterface::fact_pressed()
@@ -276,7 +286,16 @@ void CalcInterface::fact_pressed()
     if (wfnFlag){
         return;
     }
+
+    if (output.toDouble() < 0){
+        delete_pressed();
+        output = QString("Math Error");
+        wfnFlag = true;
+        return;
+    }
+
     output = QString::number( fact(output.toDouble()), 'g', displayWidth );
+
 }
 
 void CalcInterface::exp_pressed()
