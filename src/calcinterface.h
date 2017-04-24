@@ -103,7 +103,7 @@ private:
     bool mulFlag; ///< indicates presence of multiply operator
     bool powFlag; ///< indicates presence of power operator
     bool wfnFlag; ///< indicates if there is waiting for number
-
+    void set_flags(int option);
 
 };
 
