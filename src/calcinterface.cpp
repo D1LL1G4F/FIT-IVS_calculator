@@ -48,6 +48,12 @@ void CalcInterface::equal_pressed()
     }
     if (divFlag || mulFlag){
         if (divFlag){
+            if (output.toDouble() == 0){
+                delete_pressed();
+                output = QString("Math Error");
+                wfnFlag = true;
+                return;
+            }
             if (minusFlag){
                 tempSum -= div(tempFactor, output.toDouble());
             }else
@@ -109,6 +115,12 @@ void CalcInterface::plus_pressed()
     }
     if (divFlag || mulFlag){
         if (divFlag){
+            if (output.toDouble() == 0){
+                delete_pressed();
+                output = QString("Math Error");
+                wfnFlag = true;
+                return;
+            }
             if (minusFlag){
                 tempSum -= div(tempFactor, output.toDouble());
             }else
@@ -157,6 +169,12 @@ void CalcInterface::minus_pressed()
     }
     if (divFlag || mulFlag){
         if (divFlag){
+            if (output.toDouble() == 0){
+                delete_pressed();
+                output = QString("Math Error");
+                wfnFlag = true;
+                return;
+            }
             if (minusFlag){
                 tempSum -= div(tempFactor, output.toDouble());
             }else
@@ -208,6 +226,12 @@ void CalcInterface::multiply_pressed()
         return;
     }else
     if (divFlag) {
+        if (output.toDouble() == 0){
+            delete_pressed();
+            output = QString("Math Error");
+            wfnFlag = true;
+            return;
+        }
         tempFactor = div(tempFactor, output.toDouble());
         output = QString::number(tempFactor, 'g', displayWidth); // coverts tempFactor to Qtring on 9dec presition
         set_flags(3);
@@ -229,6 +253,12 @@ void CalcInterface::divide_pressed()
         powFlag = false;
     }
     if (divFlag){
+        if (output.toDouble() == 0){
+            delete_pressed();
+            output = QString("Math Error");
+            wfnFlag = true;
+            return;
+        }
         tempFactor = div(tempFactor, output.toDouble());
         set_flags(4);
         output = QString::number(tempFactor, 'g', displayWidth);
@@ -324,12 +354,12 @@ void CalcInterface::sin_pressed()
     if (wfnFlag){
         return;
     }
-    
+
     double temp = sinx(output.toDouble());
     if (fabs(temp) < 0.00000000001) {
         temp = 0.0;
     }
-    
+
     output = QString::number(temp, 'g', displayWidth);
 }
 
@@ -339,12 +369,12 @@ void CalcInterface::cos_pressed()
     if (wfnFlag){
         return;
     }
-    
+
     double temp = cosx(output.toDouble());
     if (fabs(temp) < 0.00000000001) {
         temp = 0.0;
     }
-    
+
     output = QString::number(temp, 'g', displayWidth);
 }
 
