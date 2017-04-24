@@ -1,0 +1,4 @@
+xbakal01 100 (mat. kniznica, profiling, manual , testovanie, kontrola kodu)
+xjedli24 100 (testy mat. kniznice,instalator, Makefile, manual, testovanie, README, kontrola kodu)
+xknazi00 100 (GUI, profiling, mockup, manual, dokumentacia, testovanie, vytvorenie repositara, kontrola kodu)
+xlovis03 100 (Calcinterface, dokumentacia, debugging, testovanie, kontrola kodu)
