@@ -1,0 +1,39 @@
+ROZDIELY MEDZI PLÁNOM A SKUTOČNOSŤOU
+
+Testy matematickej knižnice:
+Plán: do 20.3. Skutočnosť: 19.4. Login: xjedli24
+
+Matematická knižnica:
+Plán: do 20.3. Skutočnosť: 15.-20.4. Login: xbakal01
+
+Debugging:
+Plán: do 20.3. Skutočnosť: 24.4.
+
+Makefile:
+Plán:do 3.4. Skutočnosť: 23.4. Login: xjedli24
+
+GUI:
+Plán: do 3.4. Skutočnosť: 15.4.
+
+Profiling:
+Plán: do 10.4. Skutočnosť: 21.-24.4. Login: xknazi00, xbakal01
+
+Inštalátor:
+Plán: do 10.4. Skutočnosť: 23.4. Login:xjedli24
+
+Manuál:
+Plán: do 10.4. Skutočnosť: 21.4.-24.4 Login:xjedli24, xbakal01, xknazi00
+
+Dokumentácia:
+Plán: do 10.4. Skutočnosť: 23.4.-24.4.
+
+Mockup:
+Plán: do 17.4. Skutočnosť: 21.4.-24.4.
+
+Calcinterface:
+Nebolo zahrnuté v pláne Skutočnosť: 8.4. Login:xlovis03
+
+Zmenili sme prostredie z Ubuntu 16.04 na Windows 10.
+
+ 
+
