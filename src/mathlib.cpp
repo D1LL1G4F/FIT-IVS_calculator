@@ -1,47 +1,65 @@
 #include "mathlib.h"
-
+#include <math.h>
+#define PI 3.141592653589793
 
 double sum(double a, double b)
 {
-    //TODO...
+    return a+b;
 }
 
 double sub(double a, double b)
 {
-    //TODO...
+    return a-b;
 }
 
 double mul(double a, double b)
 {
-    //TODO...
+    return a*b;
 }
 
 double div(double divident, double divisor)
 {
-    //TODO...
+    return divident/divisor;
 }
 
 double sqroot(double radicand)
 {
-    //TODO...
+  double x=radicand;
+  double y=1;
+  double e=0.000000000001; //e urcuje presnost
+  while(x-y>e)
+	{
+		x=(x+y)/2;
+		y=radicand/x;
+	}
+  return x;
 }
 
 double fact(double num)
 {
-    //TODO...
+  unsigned int factorial = 1; //overflow?
+  for (unsigned int i=1;i<=num;i++)
+  {
+	  factorial=factorial*i;
+  }
+  return factorial;
 }
 
 double pwr(double variable, double constant)
 {
-    //TODO...
+    return pow(variable,constant);
 }
 
-double cosx(double x)
+double cosx(double x) //x=angle
 {
-    //TODO...
+  double cosin;
+  cosin=cos(x*PI/180.0);
+  return cosin;
 }
 
-double sinx(double x)
+double sinx(double x) //x=angle
 {
-    //TODO...
+  double sinus;
+  sinus=sin(x*PI/180.0);
+  return sinus;
 }

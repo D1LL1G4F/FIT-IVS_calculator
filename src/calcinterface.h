@@ -90,6 +90,7 @@ signals:
 public slots:
 
 private:
+
     QString output; ///< string printed onto the display
     int displayWidth; ///< Maximum length of displayed string in characters
     double tempSum; ///< stores value of sum so far
@@ -102,6 +103,7 @@ private:
     bool mulFlag; ///< indicates presence of multiply operator
     bool powFlag; ///< indicates presence of power operator
     bool wfnFlag; ///< indicates if there is waiting for number
+
 
 };
 

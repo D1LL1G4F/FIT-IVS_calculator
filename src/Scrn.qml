@@ -5,9 +5,10 @@ import CalcInterface 1.0
 
 
 
-TextField {
+Label {
     id: scrn
     text: qsTr("0")
     horizontalAlignment: Text.AlignRight
-    font.pointSize: 40
+    verticalAlignment: Text.AlignHCenter
+    font.pointSize: 50
 }

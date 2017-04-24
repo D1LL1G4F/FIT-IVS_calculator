@@ -28,7 +28,7 @@ Button {
     background: Rectangle {
         width: parent.width
         height: parent.height
-        color: "#FF5B00"
+        color: parent.hovered? "#ff0000" : "#FF5B00"
         opacity: parent.down ? 0.6 : 1
         visible: true
     }
