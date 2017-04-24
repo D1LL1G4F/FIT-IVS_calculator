@@ -266,6 +266,13 @@ void CalcInterface::sqrt_pressed()
     if(wfnFlag){
         return;
     }
+    if (output.toDouble() < 0){
+        delete_pressed();
+        output = QString("Math Error");
+        wfnFlag = true;
+        return;
+    }
+
     output = QString::number( sqroot(output.toDouble()), 'g', 9 );
 }
 
@@ -273,6 +280,12 @@ void CalcInterface::fact_pressed()
 {
     qDebug() << "Pressed fact ";
     if (wfnFlag){
+        return;
+    }
+    if (output.toDouble() < 0){
+        delete_pressed();
+        output = QString("Math Error");
+        wfnFlag = true;
         return;
     }
     output = QString::number( fact(output.toDouble()), 'g', 9 );
