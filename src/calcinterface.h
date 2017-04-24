@@ -43,6 +43,7 @@ private:
     bool mulFlag; // indicates presence of multilply operator
     bool powFlag; // indicates presence of power operator
     bool wfnFlag; // indicates if there is waiting for number
+    int displayWidth; // maximum length of display string in characters
 
     void set_flags(int option);
 
