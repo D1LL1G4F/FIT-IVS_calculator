@@ -1,8 +1,8 @@
-# Next-Gen Calculator
+# Calculator
 
 
 ## **Prostredi**
-*Ubuntu 64bit*
+*Windows 64bit*
 ## **Nazev tymu** 
 *What You See Is What You Might Get If You're Really Really Lucky And All Goes Well* 
 ## **Autori**
@@ -11,5 +11,4 @@
   - xjedli24 Jedlička Jakub
   - xbakal01 Bakaľárová Alica
 ## **Licence**
-*Tento program je poskytovan pod licenci [GNU GPLv3](LICENSE).*
-  
+*This aplication is provided by [GNU GPLv3](LICENSE) license.*
