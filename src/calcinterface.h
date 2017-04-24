@@ -1,3 +1,9 @@
+/**
+ * @class CalcInterface
+ * @brief Provides logic for calculator
+ * This class implements "_pressed" function for every button.
+ * "_pressed" functions are called whenever their corresponding button is pressed.
+ */
 #ifndef CALCINTERFACE_H
 #define CALCINTERFACE_H
 
@@ -32,17 +38,17 @@ signals:
 public slots:
 
 private:
-    QString output; // string sended to screen of calculator
-    double tempSum; // stores value of sum so far
-    double tempFactor; // stores value of factor so far
-    double tempBase; // stores base for power with variable exponent
-    bool pointFlag; // indicates presence of decimal point
-    bool plusFlag; // indicates presence of plus operator
-    bool minusFlag; // indicates presence of minus operator
-    bool divFlag; // indicates presence of divide operator
-    bool mulFlag; // indicates presence of multilply operator
-    bool powFlag; // indicates presence of power operator
-    bool wfnFlag; // indicates if there is waiting for number
+    QString output; ///< string printed onto the display
+    double tempSum; ///< stores value of sum so far
+    double tempFactor; ///< stores value of factor so far
+    double tempBase; ///< stores base for power with variable exponent
+    bool pointFlag; ///< indicates presence of decimal point
+    bool plusFlag; ///< indicates presence of plus operator
+    bool minusFlag; ///< indicates presence of minus operator
+    bool divFlag; ///< indicates presence of divide operator
+    bool mulFlag; ///< indicates presence of multiply operator
+    bool powFlag; ///< indicates presence of power operator
+    bool wfnFlag; ///< indicates if there is waiting for number
 
 };
 
