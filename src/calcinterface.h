@@ -2,7 +2,9 @@
  * @class CalcInterface
  * @brief Provides logic for calculator
  * This class implements "_pressed" function for every button.
- * "_pressed" functions are called whenever their corresponding button is pressed.
+ * display() is called after "_pressed" function to update display.
+ *
+ * @var output This QString is printed out after every button press
  *
  */
 #ifndef CALCINTERFACE_H
@@ -80,8 +82,8 @@ public:
      */
     Q_INVOKABLE void cos_pressed();
     /**
-     * @brief Print the output on the display
-     * @param scrn Pointer to the display - text object
+     * @brief Changes string of the display to "QString output"
+     * @param scrn Pointer to the display
      */
     Q_INVOKABLE void display(QObject *scrn);
 
@@ -91,18 +93,22 @@ public slots:
 
 private:
 
-    QString output; ///< string printed onto the display
-    int displayWidth; ///< Maximum length of displayed string in characters
-    double tempSum; ///< stores value of sum so far
-    double tempFactor; ///< stores value of factor so far
-    double tempBase; ///< stores base for power with variable exponent
-    bool pointFlag; ///< indicates presence of decimal point
-    bool plusFlag; ///< indicates presence of plus operator
-    bool minusFlag; ///< indicates presence of minus operator
-    bool divFlag; ///< indicates presence of divide operator
-    bool mulFlag; ///< indicates presence of multiply operator
-    bool powFlag; ///< indicates presence of power operator
-    bool wfnFlag; ///< indicates if there is waiting for number
+    QString output;
+    int displayWidth; // Maximum length of displayed string in characters
+    double tempSum; // stores value of sum so far
+    double tempFactor; // stores value of factor so far
+    double tempBase; // stores base for power with variable exponent
+    bool pointFlag; // indicates presence of decimal point
+    bool plusFlag; //indicates presence of plus operator
+    bool minusFlag; // indicates presence of minus operator
+    bool divFlag; // indicates presence of divide operator
+    bool mulFlag; // indicates presence of multiply operator
+    bool powFlag; // indicates presence of power operator
+    bool wfnFlag; // indicates if there is waiting for number
+    /**
+     * @brief Changes multiple flags at once
+     * @param option Decides how to set the flags.
+     */
     void set_flags(int option);
 
 };
