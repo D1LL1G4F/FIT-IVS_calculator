@@ -395,4 +395,3 @@ void CalcInterface::set_flags(int option)
         break;
     }
 }
-
